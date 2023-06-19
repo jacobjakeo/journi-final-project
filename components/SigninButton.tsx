@@ -7,13 +7,19 @@ const SigninButton = () => {
   const { data: session } = useSession();
   if (session && session.user) {
     return (
-      <div>
-        <p>{session.user.name}</p>
-        <button onClick={() => signOut()} className={styles.Buttons}>Sign out</button>
+      <div className={styles.authenticatedContainer}>
+        <p className={styles.userName}>{session.user.name}</p>
+        <button onClick={() => signOut()} className={styles.Buttons}>
+          Sign out
+        </button>
       </div>
     );
   }
-  return <button onClick={() => signIn()} className={styles.Buttons}>Sign in</button>;
+  return (
+    <button onClick={() => signIn()} className={styles.Buttons}>
+      Sign in
+    </button>
+  );
 };
 
 export default SigninButton;

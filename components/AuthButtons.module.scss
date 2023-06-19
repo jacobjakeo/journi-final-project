@@ -17,3 +17,14 @@
   cursor: pointer;
   font-size: medium;
 }
+
+.authenticatedContainer {
+  display: flex;
+  align-items: center;
+}
+
+.userName {
+  font-family: Montserrat-Bold, sans-serif;
+  color: #ededed;
+  margin-right: 10px;
+}
