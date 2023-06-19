@@ -25,6 +25,22 @@
 
 .userName {
   font-family: Montserrat-Bold, sans-serif;
-  color: #ededed;
   margin-right: 10px;
+}
+
+.userName a {
+  color: #ededed;
+  text-decoration: none;
+  font-family: Monserrat-Medium, sans-serif;
+  font-size: 1rem;
+}
+
+.userName a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.logoutIcon {
+  width: 30px;
+  height: 30px;
 }

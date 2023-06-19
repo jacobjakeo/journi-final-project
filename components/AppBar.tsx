@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import styles from './AppBar.module.scss';
@@ -11,12 +12,13 @@ const AppBar = () => {
         <ul className={styles.navLinks}>
           <li className={styles.navItem}>
             <Link href="/">
-              <p>Home Page</p>
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/UserPost">
-              <p>User Page</p>
+              <Image
+                src="/../public/assets/mainlogo.png"
+                width={50}
+                height={50}
+                alt="Home button in the style of the Journi logo"
+                className={styles.logoImage}
+              />
             </Link>
           </li>
         </ul>
