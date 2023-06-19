@@ -1,0 +1,10 @@
+.body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.root-layout {
+  min-height: 100vh;
+  background-color: #22282f;
+}

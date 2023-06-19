@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('../public/fonts/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('../public/fonts/Montserrat-Medium.ttf');
+}
+
+.appBar {
+  background-color: #22282f;
+  padding: 10px;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: medium;
+}
+
+.navItem {
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+
+.navItem a {
+  text-decoration: none;
+  color: #ededed;
+}
+
+.authButtons {
+  display: flex;
+}

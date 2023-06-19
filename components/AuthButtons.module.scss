@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('../public/fonts/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('../public/fonts/Montserrat-Medium.ttf');
+}
+
+.Buttons {
+  font-family: Montserrat-Bold, sans-serif;
+  text-transform: uppercase;
+  border: none;
+  color: #ededed;
+  background-color: #22282f;
+  cursor: pointer;
+  font-size: medium;
+}

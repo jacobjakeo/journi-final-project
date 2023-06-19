@@ -2,6 +2,7 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import styles from './AuthButtons.module.scss';
 
 const RegisterButton = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const RegisterButton = () => {
   }
 
   return (
-    <button onClick={handleRegisterClick} className="your-button-styles">
+    <button onClick={handleRegisterClick} className={styles.Buttons}>
       Register
     </button>
   );
