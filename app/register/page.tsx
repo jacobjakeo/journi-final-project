@@ -1,13 +1,21 @@
+import Image from 'next/image';
+import AppBar from '../../components/AppBar';
 import { RegisterForm } from '../api/register/form';
+import styles from './registerpage.module.scss';
 
 export default function RegisterPage() {
   return (
-    <section className="bg-ct-blue-600 min-h-screen pt-20">
-      <div className="container mx-auto px-6 py-12 h-full flex justify-center items-center">
-        <div className="md:w-8/12 lg:w-5/12 bg-white px-8 py-10">
-          <RegisterForm />
-        </div>
-      </div>
-    </section>
+    <div className={styles.registerpage}>
+      <AppBar />
+      <Image
+        src="/../public/assets/logo2.png"
+        width={280}
+        height={100}
+        alt="Journi logo"
+        className={styles.headerimage}
+      />
+      <h2 className={styles.registration_header}>Create a new account</h2>
+      <RegisterForm />
+    </div>
   );
 }

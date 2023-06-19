@@ -9,5 +9,12 @@
     "javascript",
     "typescriptreact"
   ],
-  "cSpell.words": ["Signin", "tailwindcss"]
+  "cSpell.words": [
+    "fieldemail",
+    "fieldname",
+    "fieldpassword",
+    "Signin",
+    "signup",
+    "tailwindcss"
+  ]
 }

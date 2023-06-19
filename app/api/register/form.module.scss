@@ -1,0 +1,50 @@
+.input_fieldname,
+.input_fieldemail,
+.input_fieldpassword,
+.button_signup {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 40px;
+  border-radius: 11px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  border: none;
+  text-align: center;
+}
+
+.input_fieldname {
+  top: calc(50% - 30px);
+  background-image: url('../../../public/assets/username_input_field.png');
+}
+
+.input_fieldemail {
+  top: calc(50% - -86.1704px);
+  background-image: url('../../../public/assets/email_input_field.png');
+}
+
+.input_fieldpassword {
+  top: calc(50% - -204.8931px);
+  background-image: url('../../../public/assets/password_input_field.png');
+}
+
+.button_signup {
+  top: calc(50% - -334.3404px);
+  width: 400px;
+  height: 40px;
+  height: 44.6809px;
+  background-image: url('../../../public/assets/register_button_background.png');
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .input_fieldname,
+  .input_fieldemail,
+  .input_fieldpassword,
+  .button_signup {
+    width: 300px;
+  }
+}
