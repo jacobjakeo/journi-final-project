@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
-import styles from './page.module.scss';
+import AppBar from '../components/AppBar';
+import Providers from '../components/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,7 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <main className={styles.main1}>{children}</main>
+      <body>
+        <Providers>
+          <AppBar />
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }

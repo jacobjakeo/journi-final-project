@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import * as bcrypt from 'bcrypt';
 import prisma from '../../../lib/prisma';
 
