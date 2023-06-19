@@ -17,13 +17,14 @@ const UserPostPage = () => {
       <div className={styles.profile}>
         <div className={styles.profilePicture} />
         <div className={styles.profileInfo}>
-          <div className={styles.username}>John Doe</div>
-          <div className={styles.status}>Active</div>
+          <div className={styles.username}>Jakub Oksa</div>
+          <div className={styles.status}>Member Since</div>
+          <div className={styles.status}>2023</div>
         </div>
       </div>
       <div className={styles.separator} />
       <div className={styles.statsContainer}>
-        <h3 className={styles.statisticsHeading}>Traveller Statistics</h3>
+        <h3 className={styles.statisticsHeading}>Journi Statistics</h3>
         <div className={styles.stats}>
           <div className={styles.statCard}>
             <div className={styles.statHeading}>Hotels Visited</div>

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import journiIcon from '../public/assets/journilogo.png';
 import styles from './AppBar.module.scss';
 import RegisterButton from './RegisterButton';
 import SigninButton from './SigninButton';
@@ -22,6 +23,7 @@ const AppBar = () => {
             </Link>
           </li>
         </ul>
+        <Image src={journiIcon} alt="Journi" className={styles.journiIcon} />
         <div className={styles.authButtons}>
           <SigninButton />
           <RegisterButton />
