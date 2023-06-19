@@ -11,6 +11,9 @@
 .appBar {
   background-color: #22282f;
   padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navBar {

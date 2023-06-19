@@ -1,0 +1,152 @@
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../../public/fonts/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url('../../public/fonts/Montserrat-Medium.ttf');
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #22282f;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 500px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profilePicture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 20px;
+}
+
+.profileInfo {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.username {
+  font-size: 18px;
+  color: #494949;
+  font-family: Montserrat-Bold, sans-serif;
+  text-transform: uppercase;
+}
+
+.status {
+  font-size: 14px;
+  color: #494949;
+  margin-top: 5px;
+  font-family: Montserrat-Medium, sans-serif;
+}
+
+.separator {
+  width: 1px;
+  height: 450px;
+  background-color: white;
+  margin: 20px;
+}
+
+.favoriteLastContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 190px;
+  height: 120px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeading {
+  font-size: 14px;
+  color: #494949;
+  font-family: Montserrat-Medium, sans-serif;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.cardImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-bottom: 5px;
+}
+
+.cardText {
+  font-size: 12px;
+  color: #494949;
+  font-family: Montserrat-Medium, sans-serif;
+  text-align: center;
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.statisticsHeading {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: Montserrat-Bold, sans-serif;
+  color: white;
+  text-transform: uppercase;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  font-family: Montserrat-Bold, sans-serif;
+}
+
+.statCard {
+  width: 150px;
+  height: 70px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.statHeading {
+  font-size: 14px;
+  color: #494949;
+  font-family: Montserrat-Medium, sans-serif;
+}
+
+.statNumber {
+  font-size: 20px;
+  color: #494949;
+  font-weight: bold;
+}
