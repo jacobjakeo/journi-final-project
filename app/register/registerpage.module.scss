@@ -1,7 +1,8 @@
 .registerpage {
-  background-color: #22282f;
+  background-color: #ededed;
   height: 100vh; /* Set the height to fill the viewport */
   display: flex;
   justify-content: center; /* Center the content horizontally */
   align-items: center; /* Center the content vertically */
+  overflow: hidden;
 }

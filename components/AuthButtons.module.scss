@@ -11,11 +11,11 @@
 .Buttons {
   font-family: Montserrat-Bold, sans-serif;
   text-transform: uppercase;
-  border: none;
-  color: #ededed;
-  background-color: #22282f;
+  color: #22282f;
   cursor: pointer;
   font-size: medium;
+  background-color: transparent;
+  border: none;
 }
 
 .authenticatedContainer {
@@ -29,19 +29,18 @@
 }
 
 .userName a {
-  color: #ededed;
+  color: #22282f;
   text-decoration: none;
-  font-family: Monserrat-Medium, sans-serif;
-  font-size: 1rem;
+  font-family: Monserrat-Bold, sans-serif;
+  font-size: 0.8rem;
   text-transform: uppercase;
 }
 
 .userName a:hover {
-  text-decoration: underline;
   cursor: pointer;
 }
 
 .logoutIcon {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
 }

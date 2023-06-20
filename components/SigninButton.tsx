@@ -12,7 +12,7 @@ const SigninButton = () => {
     return (
       <div className={styles.authenticatedContainer}>
         <p className={styles.userName}>
-          <Link href="/UserPost">{session.user.name}</Link>
+          <Link href="/UserPost">LOGGED IN AS: {session.user.name}</Link>
         </p>
         <button onClick={() => signOut()} className={styles.Buttons}>
           <Image src={logoutIcon} alt="Logout" className={styles.logoutIcon} />

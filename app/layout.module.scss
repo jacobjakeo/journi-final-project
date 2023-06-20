@@ -2,9 +2,10 @@
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Prevent horizontal scrolling */
+  background-color: #ededed;
 }
 
 .root-layout {
-  min-height: 100vh;
-  background-color: #22282f;
+  min-height: auto;
+  background-color: #ededed;
 }

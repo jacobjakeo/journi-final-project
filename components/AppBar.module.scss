@@ -9,7 +9,7 @@
 }
 
 .appBar {
-  background-color: #22282f;
+  background-color: #ededed;
   padding: 10px;
   position: sticky;
   top: 0;
@@ -20,6 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
 }
 
 .navLinks {
@@ -43,10 +44,6 @@
 
 .authButtons {
   display: flex;
-}
-
-.logoImage {
-  align-items: center;
 }
 
 .journiIcon {
