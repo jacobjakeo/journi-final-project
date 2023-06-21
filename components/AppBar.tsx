@@ -1,14 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import journiIcon from '../public/assets/journilogo.png';
 import styles from './AppBar.module.scss';
 import RegisterButton from './RegisterButton';
 import SigninButton from './SigninButton';
 
 const AppBar = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <header className={styles.appBar}>
         <nav className={styles.navBar}>
           <ul className={styles.navLinks}>
@@ -19,12 +18,13 @@ const AppBar = () => {
                   width={50}
                   height={50}
                   alt="Home button in the style of the Journi logo"
-                  className={styles.logoImage}
                 />
               </Link>
             </li>
+            <li className={styles.navItem}>
+              <Link href="/hotels">Explore Hotels</Link>
+            </li>
           </ul>
-          {/*<Image src={journiIcon} alt="Journi" className={styles.journiIcon} />*/}
           <div className={styles.authButtons}>
             <SigninButton />
             <RegisterButton />

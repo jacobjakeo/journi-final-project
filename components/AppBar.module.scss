@@ -12,34 +12,39 @@
   background-color: #ededed;
   padding: 10px;
   position: sticky;
-  top: 0;
   z-index: 100;
 }
 
 .navBar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   position: sticky;
 }
 
 .navLinks {
   display: flex;
+  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
   font-family: Montserrat-Bold, sans-serif;
   font-size: medium;
+  align-items: center;
 }
 
 .navItem {
   margin-right: 20px;
   text-transform: uppercase;
+  padding-left: 15px;
 }
 
 .navItem a {
+  color: #22282f;
   text-decoration: none;
-  color: #ededed;
+  font-family: Monserrat-Bold, sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  align-items: center;
 }
 
 .authButtons {

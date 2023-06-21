@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import AppBar from '../components/AppBar';
+import Footer from '../components/Footer';
 import Providers from '../components/Providers';
 import styles from './layout.module.scss';
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Providers>
           <AppBar />
           <div className={styles['root-layout']}>{children}</div>
+          <Footer />
         </Providers>
       </body>
     </html>

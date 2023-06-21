@@ -12,8 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #22282f;
+  height: 90vh;
+  background-color: #ededed;
 }
 
 .profile {
@@ -24,7 +24,7 @@
   height: 500px;
   background-color: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgb(0, 0, 0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .profilePicture {
@@ -42,7 +42,7 @@
 
 .username {
   font-size: 18px;
-  color: #494949;
+  color: #22282f;
   font-family: Montserrat-Bold, sans-serif;
   text-transform: uppercase;
 }
@@ -114,7 +114,7 @@
   font-size: 18px;
   margin-bottom: 10px;
   font-family: Montserrat-Bold, sans-serif;
-  color: white;
+  color: #22282f;
   text-transform: uppercase;
 }
 

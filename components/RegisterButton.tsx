@@ -13,7 +13,7 @@ const RegisterButton = () => {
   };
 
   if (session && session.user) {
-    return null; // User is logged in, return null to hide the Register button
+    return null;
   }
 
   return (

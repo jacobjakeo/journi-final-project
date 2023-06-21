@@ -13,11 +13,16 @@
   src: url('../public/fonts/Lato-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'ReinaNeue-Heavy';
+  src: url('../public/fonts/ReinaNeue-Heavy.otf');
+}
+
 .container {
   display: flex;
   flex-direction: row;
-  height: auto; /* Adjust the height as needed */
-  overflow: hidden;
+  height: 80vh;
+  padding-left: 25px;
 }
 
 .left {
@@ -25,7 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  position: relative;
 }
 
 .right {
@@ -35,14 +40,14 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
+  height: 70vh;
 }
 
 .heading1 {
-  font-size: 3rem;
+  font-size: 5rem;
   color: #22282f;
-  margin-bottom: 1rem;
-  font-family: Montserrat-Bold, sans-serif;
+  margin-bottom: 0.5rem;
+  font-family: ReinaNeue-Heavy, sans-serif;
 }
 
 .heading2 {
@@ -60,8 +65,11 @@
   font-family: Lato-Regular, sans-serif;
   text-align: justify;
   line-height: 1.5;
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 425px; /* Adjust the maximum width based on your preference */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .para2 {
@@ -75,4 +83,18 @@
   margin-right: 20px;
   text-transform: uppercase;
   font-weight: 700;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+}
+
+.disclaimer {
+  font-size: 12px;
+  color: #555;
+  margin: 0;
 }

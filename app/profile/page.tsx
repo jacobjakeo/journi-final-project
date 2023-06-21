@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './UserPost.module.scss';
+import styles from './profile.module.scss';
 
 interface Metadata {
   title: string;
