@@ -49,9 +49,9 @@ const HotelsCards: React.FC = () => {
       <h2 className={styles.header}>Explore new hotels</h2>
       <div className={styles.hotelsList}>
         {hotels.map((hotel) => (
-          <div className={styles.hotelCard} key={hotel.id}>
-            <h2>{hotel.name}</h2>
-            <p>{hotel.location}</p>
+          <div className={styles.hotelCard} key={`hotel-${hotel.id}`}>
+            <h2 className={styles.cardHeader}>{hotel.name}</h2>
+            <p className={styles.cardPara}>{hotel.location}</p>
           </div>
         ))}
       </div>
