@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './HotelsCards.module.scss';
 
 interface Hotel {
@@ -12,10 +13,25 @@ interface Hotel {
   website: string;
 }
 
-const HotelsCards: React.FC = () => {
+function HotelsCards() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [hotelId, setHotelId] = useState(null);
+
+  const handleHotelClick = (event) => {
+    const hotelId = event.target.closest('.hotelCard')?.dataset.hotelId;
+    if (hotelId) {
+      setHotelId(hotelId);
+      if (hotelId !== undefined) {
+        window.location.href = `/hotels/${hotelId}`;
+      }
+    }
+  };
+
+  const handleMouseDown = (event) => {
+    handleHotelClick(event);
+  };
 
   useEffect(() => {
     const fetchHotels = async () => {
@@ -36,20 +52,17 @@ const HotelsCards: React.FC = () => {
     fetchHotels();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
   return (
     <div className={styles.hotelsContainer}>
       <h2 className={styles.header}>Explore new hotels</h2>
       <div className={styles.hotelsList}>
         {hotels.map((hotel) => (
-          <div className={styles.hotelCard} key={`hotel-${hotel.id}`}>
+          <div
+            className={styles.hotelCard}
+            key={`hotel-${hotel.id}`}
+            data-hotel-id={hotel.id}
+            onMouseDown={handleMouseDown}
+          >
             <h2 className={styles.cardHeader}>{hotel.name}</h2>
             <p className={styles.cardPara}>{hotel.location}</p>
           </div>
@@ -57,6 +70,6 @@ const HotelsCards: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default HotelsCards;

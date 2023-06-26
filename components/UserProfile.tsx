@@ -26,6 +26,7 @@ const UserProfile = () => {
   }
 
   const { user } = session;
+  const createdAtYear = new Date(user.createdAt).getFullYear();
 
   return (
     <div className={styles.container}>
@@ -34,7 +35,7 @@ const UserProfile = () => {
         <div className={styles.profileInfo}>
           <div className={styles.username}>{user.name}</div>
           <div className={styles.email}>{user.email}</div>
-          <div className={styles.status}>{user.createdAt}</div>
+          <div className={styles.status}>{createdAtYear}</div>
         </div>
       </div>
       <div className={styles.separator} />
