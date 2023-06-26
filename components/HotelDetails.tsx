@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import styles from './HotelDetails.module.scss';
 
 const HotelDetails: React.FC = () => {
   const [hotel, setHotel] = useState(null);
@@ -29,14 +30,20 @@ const HotelDetails: React.FC = () => {
   }
 
   return (
-    <div>
-      <h2>{hotel.name}</h2>
-      <p>{hotel.location}</p>
-      <p>Price: € {hotel.price}</p>
-      <p>Number of rooms: {hotel.numberOfRooms}</p>
-      <p>
-        Website: <a href={hotel.website}>{hotel.website}</a>
-      </p>
+    <div className={styles.hotelDetails}>
+      <div className={styles.leftSide}>
+        <h2>hotelpicture</h2>
+      </div>
+      <div className={styles.rightSide}>
+        <h2>{hotel.name}</h2>
+        <p>{hotel.location}</p>
+        <p>Price: € {hotel.price}</p>
+        <p>Number of rooms: {hotel.numberOfRooms}</p>
+        <p>{hotel.description}</p>
+        <p>
+          Website: <a href={hotel.website}>{hotel.website}</a>
+        </p>
+      </div>
     </div>
   );
 };

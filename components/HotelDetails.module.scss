@@ -1,0 +1,29 @@
+.hotelDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.leftSide {
+  background-color: #424242;
+  height: 100%;
+  width: 25%;
+  padding: 20px;
+  color: white;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 5px;
+  }
+}
+
+.rightSide {
+  width: 75%;
+}
