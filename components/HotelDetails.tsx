@@ -45,7 +45,9 @@ const HotelDetails: React.FC = () => {
         </p>
         <p className={styles.rightDesc}>{hotel.description}</p>
         <p className={styles.rightLink}>
-          More Information<a href={hotel.website}>{hotel.website}</a>
+          More Information
+          <br />
+          <a href={hotel.website}>{hotel.website}</a>
         </p>
       </div>
     </div>
