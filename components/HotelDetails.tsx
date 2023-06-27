@@ -35,13 +35,17 @@ const HotelDetails: React.FC = () => {
         <h2>hotelpicture</h2>
       </div>
       <div className={styles.rightSide}>
-        <h2>{hotel.name}</h2>
-        <p>{hotel.location}</p>
-        <p>Price: € {hotel.price}</p>
-        <p>Number of rooms: {hotel.numberOfRooms}</p>
-        <p>{hotel.description}</p>
-        <p>
-          Website: <a href={hotel.website}>{hotel.website}</a>
+        <h2 className={styles.rightName}>{hotel.name}</h2>
+        <p className={styles.rightLocation}>{hotel.location}</p>
+        <p className={styles.rightPrice}>
+          Starting from € {hotel.price} per night
+        </p>
+        <p className={styles.rightRooms}>
+          This property has {hotel.numberOfRooms} rooms
+        </p>
+        <p className={styles.rightDesc}>{hotel.description}</p>
+        <p className={styles.rightLink}>
+          More Information<a href={hotel.website}>{hotel.website}</a>
         </p>
       </div>
     </div>

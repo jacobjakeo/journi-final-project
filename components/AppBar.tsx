@@ -24,6 +24,9 @@ const AppBar = () => {
             <li className={styles.navItem}>
               <Link href="/hotels">Explore Hotels</Link>
             </li>
+            <li className={styles.navItem}>
+              <Link href="/news">News</Link>
+            </li>
           </ul>
           <div className={styles.authButtons}>
             <SigninButton />

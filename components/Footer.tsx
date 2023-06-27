@@ -11,10 +11,10 @@ const Footer = () => {
         <div className={styles.navigation}>
           <ul className={styles.navLinks}>
             <li className={styles.navItem}>
-              <Link href="/">About</Link>
+              <Link href="/about">About</Link>
             </li>
             <li className={styles.navItem}>
-              <Link href="/">Services</Link>
+              <Link href="/services">Services</Link>
             </li>
             <li className={styles.navItem}>
               <Link href="/contact">Contact</Link>

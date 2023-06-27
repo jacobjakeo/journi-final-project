@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('../public/fonts/Montserrat-Bold.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('../public/fonts/Montserrat-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url('../public/fonts/Lato-Regular.ttf');
+}
+
 .hotelDetails {
   display: flex;
   flex-direction: row;
@@ -5,15 +19,17 @@
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
+  height: 80vh;
 }
 
 .leftSide {
   background-color: #424242;
   height: 100%;
-  width: 25%;
+  width: 50%;
   padding: 20px;
   color: white;
   text-align: center;
+  margin-bottom: 2.5vh;
 
   h2 {
     margin-bottom: 10px;
@@ -25,5 +41,44 @@
 }
 
 .rightSide {
-  width: 75%;
+  width: 100%;
+
+  .rightName {
+    font-family: Montserrat-Bold, sans-serif;
+    text-transform: uppercase;
+  }
+
+  .rightLocation {
+    font-family: Montserrat-Medium, sans-serif;
+  }
+
+  .rightPrice {
+    font-family: Montserrat-Medium, sans-serif;
+    font-size: small;
+  }
+
+  .rightRooms {
+    font-family: Montserrat-Medium, sans-serif;
+    font-size: small;
+  }
+
+  .rightDesc {
+    font-family: Lato-Regular, sans-serif;
+  }
+
+  .rightLink {
+    font-family: montserrat-bold, sans-serif;
+    text-transform: uppercase;
+    color: #424242;
+
+    a {
+      text-decoration: none;
+      color: #424242;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: beige;
+    }
+  }
 }
