@@ -14,7 +14,15 @@ export default async function handler(req, res) {
     const hotel = await prisma.hotel.findUnique({
       where: { id: hotelId },
     });
-    res.status(200).json(hotel);
+
+    if (!hotel) {
+      res.status(404).json({ message: 'Hotel not found' });
+      return;
+    }
+
+    const imageUrl = hotel.image ? `/hotel-${hotel.id}.jpg` : '';
+
+    res.status(200).json({ ...hotel, imageUrl });
   } else {
     res.status(405).json({ message: 'Method Not Allowed' });
   }

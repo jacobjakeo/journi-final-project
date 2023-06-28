@@ -38,7 +38,9 @@ model Hotel {
   numberOfRooms  Int
   website        String
   reviews        Review[]
+  image          String  @default("")// New field to store the image filename
 }
+
 
 model Review {
   id        Int    @id @default(autoincrement())

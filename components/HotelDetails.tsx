@@ -1,8 +1,6 @@
 'use client';
-'use client';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import ExampleImage from '../public/assets/hotelimages/hotel-1.jpg';
 import styles from './HotelDetails.module.scss';
 
 const HotelDetails: React.FC = () => {
@@ -37,7 +35,8 @@ const HotelDetails: React.FC = () => {
       <div className={styles.hotelImage}>
         <h2 className={styles.hotelName}>{hotel.name}</h2>
         <Image
-          src={ExampleImage}
+          src={`/assets/hotelimages/hotel-${hotel.id}.jpg`}
+          alt={hotel.name}
           layout="fill"
           objectFit="cover"
           quality={100}

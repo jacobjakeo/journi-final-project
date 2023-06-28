@@ -11,6 +11,7 @@ interface Hotel {
   price: number;
   numberOfRooms: number;
   website: string;
+  imageUrl: string; // Added imageUrl field
 }
 
 function HotelsCards() {
@@ -65,6 +66,11 @@ function HotelsCards() {
           >
             <h2 className={styles.cardHeader}>{hotel.name}</h2>
             <p className={styles.cardPara}>{hotel.location}</p>
+            <img
+              className={styles.cardImage}
+              src={hotel.imageUrl}
+              alt={hotel.name}
+            />
           </div>
         ))}
       </div>
