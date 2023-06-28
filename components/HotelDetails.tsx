@@ -52,8 +52,6 @@ const HotelDetails: React.FC = () => {
             This property has {hotel.numberOfRooms} rooms
           </p>
           <p className={styles.link}>
-            More Information
-            <br />
             <a href={hotel.website}>{hotel.website}</a>
           </p>
         </div>
