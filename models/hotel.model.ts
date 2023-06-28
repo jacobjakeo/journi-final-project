@@ -7,7 +7,7 @@ export interface Hotel {
   description: string;
   price: number;
   numberOfRooms: number;
-  website: string;
+  amenities: string;
 }
 
 export interface CreateHotelInput extends Omit<Prisma.HotelCreateInput, 'id'> {}

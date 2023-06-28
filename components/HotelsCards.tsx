@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './HotelsCards.module.scss';
 
 interface Hotel {

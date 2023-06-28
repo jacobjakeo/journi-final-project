@@ -46,10 +46,10 @@ const HotelDetails: React.FC = () => {
         <div className={styles.leftSide}>
           <p className={styles.location}>{hotel.location}</p>
           <p className={styles.price}>
-            Starting from € {hotel.price} per night
+            Starting from € {hotel.price} per night, prices may vary.
           </p>
           <p className={styles.rooms}>
-            This property has {hotel.numberOfRooms} rooms
+            This property has {hotel.numberOfRooms} rooms in total.
           </p>
           <p className={styles.link}>
             <a href={hotel.website}>{hotel.website}</a>
