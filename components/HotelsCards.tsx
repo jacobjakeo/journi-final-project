@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import styles from './HotelsCards.module.scss';
 
@@ -19,13 +20,14 @@ function HotelsCards() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hotelId, setHotelId] = useState(null);
+  const router = useRouter();
 
   const handleHotelClick = (event) => {
-    const hotelId = event.target.closest('.hotelCard')?.dataset.hotelId;
+    const hotelId = event.currentTarget.dataset.hotelId;
     if (hotelId) {
       setHotelId(hotelId);
       if (hotelId !== undefined) {
-        window.location.href = `/hotels/${hotelId}`;
+        router.push(`/hotels/${hotelId}`);
       }
     }
   };
@@ -58,7 +60,12 @@ function HotelsCards() {
       <h2 className={styles.header}>Explore new hotels</h2>
       <div className={styles.hotelsList}>
         {hotels.map((hotel) => (
-          <div className={styles.hotelCard} key={`hotel-${hotel.id}`}>
+          <div
+            className={styles.hotelCard}
+            key={`hotel-${hotel.id}`}
+            data-hotel-id={hotel.id}
+            onMouseDown={handleMouseDown}
+          >
             <div className={styles.imageContainer}>
               <Image
                 className={styles.cardImage}
