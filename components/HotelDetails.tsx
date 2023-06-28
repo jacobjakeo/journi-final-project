@@ -99,50 +99,57 @@ const HotelDetails: React.FC = () => {
           <p className={styles.link}>
             <a href={hotel.website}>{hotel.website}</a>
           </p>
+          <div className={styles.reviewComments}>
+            <h3>Reviews</h3>
+            {hotel.reviews && hotel.reviews.length > 0 ? (
+              <ul>
+                {hotel.reviews.map((review) => (
+                  <li key={review.id}>
+                    <p>Username: {review.username}</p>
+                    <p>Journi Rating: {review.rating} ☆</p>
+                    <p>Review: {review.comment}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No reviews yet.</p>
+            )}
+          </div>
         </div>
         <div className={styles.rightSide}>
           <p className={styles.description}>{hotel.description}</p>
-
-          <h3>Reviews</h3>
-          {hotel.reviews && hotel.reviews.length > 0 ? (
-            <ul>
-              {hotel.reviews.map((review) => (
-                <li key={review.id}>
-                  <p>Username: {review.username}</p>
-                  <p>Rating: {review.rating}</p>
-                  <p>Comment: {review.comment}</p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No reviews yet.</p>
-          )}
-
-          <h3>Submit a Review</h3>
-          <form onSubmit={handleSubmitReview}>
-            <div>
-              <label htmlFor="rating">Rating:</label>
-              <select id="rating" value={rating} onChange={handleRatingChange}>
-                <option value={0}>Select rating</option>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="comment">Comment:</label>
-              <textarea
-                id="comment"
-                value={comment}
-                onChange={handleCommentChange}
-              ></textarea>
-            </div>
-            <button type="submit">Submit Review</button>
-          </form>
+          <div className={styles.reviewForm}>
+            <h3>Submit a Review</h3>
+            <form onSubmit={handleSubmitReview}>
+              <div>
+                <label htmlFor="rating">Journi Rating:</label>
+                <select
+                  id="rating"
+                  value={rating}
+                  onChange={handleRatingChange}
+                >
+                  <option value={0}>Select rating</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="comment">Comment:</label>
+                <textarea
+                  id="comment"
+                  value={comment}
+                  onChange={handleCommentChange}
+                ></textarea>
+              </div>
+              <button type="submit">Submit Review</button>
+            </form>
+          </div>
         </div>
       </div>
+      <div className={styles.reviewSection}></div>
     </div>
   );
 };
