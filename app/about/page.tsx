@@ -9,7 +9,7 @@ const NewsPage: React.FC = () => {
         <p className={styles.para1}>
           Journi is my final project at the UpLeveled Web Development Bootcamp.
           It is a fullstack app, with the front-end built on Next.js, database
-          running on SQLite (Prisma), and server running on Node.js.
+          running on SQLite (Prisma), and server running on Express.
         </p>
         <p className={styles.para1}>
           I'm Jakub Oksa, a fullstack web developer based in Vienna, Austria.
