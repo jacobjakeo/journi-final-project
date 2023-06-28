@@ -1,7 +1,7 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const cors = require('cors');
-const path = require('path');
+const path = require('node:path');
 
 const prisma = new PrismaClient();
 const app = express();
@@ -27,6 +27,7 @@ app.get('/api/hotels/:id', async (req, res) => {
   try {
     const hotel = await prisma.hotel.findUnique({
       where: { id: parseInt(id) },
+      include: { reviews: true }, // Include the associated reviews
     });
 
     if (!hotel) {
@@ -37,6 +38,34 @@ app.get('/api/hotels/:id', async (req, res) => {
   } catch (error) {
     console.error('Error fetching hotel:', error);
     res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/api/hotels/:id/reviews', async (req, res) => {
+  const { id } = req.params;
+  const { rating, comment } = req.body;
+  const username = req.session.user.username;
+
+  try {
+    const hotelId = parseInt(id, 10);
+    if (isNaN(hotelId)) {
+      res.status(400).json({ error: 'Invalid hotel ID' });
+      return;
+    }
+
+    const review = await prisma.review.create({
+      data: {
+        hotelId,
+        username,
+        rating,
+        comment,
+      },
+    });
+
+    res.status(201).json({ review });
+  } catch (error) {
+    console.error('Error creating review:', error);
+    res.status(500).json({ error: 'Failed to create review' });
   }
 });
 

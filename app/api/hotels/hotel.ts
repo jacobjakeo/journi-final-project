@@ -13,6 +13,7 @@ export default async function handler(req, res) {
 
     const hotel = await prisma.hotel.findUnique({
       where: { id: hotelId },
+      include: { reviews: true }, // Include the reviews
     });
 
     if (!hotel) {
@@ -23,6 +24,22 @@ export default async function handler(req, res) {
     const imageUrl = hotel.image ? `/hotel-${hotel.id}.jpg` : '';
 
     res.status(200).json({ ...hotel, imageUrl });
+  } else if (req.method === 'POST') {
+    // Handle POST request to submit a review for a hotel
+    const { hotelId, rating, comment } = req.body;
+
+    // Perform validation if needed (e.g., check if the user has already submitted a review for this hotel)
+
+    const review = await prisma.review.create({
+      data: {
+        hotelId,
+        username: req.session.username, // Assuming you have the username stored in the session
+        rating,
+        comment,
+      },
+    });
+
+    res.status(201).json({ message: 'Review submitted successfully', review });
   } else {
     res.status(405).json({ message: 'Method Not Allowed' });
   }
