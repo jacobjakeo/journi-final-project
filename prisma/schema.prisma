@@ -37,9 +37,14 @@ model Hotel {
   price          Int
   numberOfRooms  Int
   website        String
+  lowestRates    String  // New column for lowestRates
+  amenities      String  // New column for amenities
+  dining         String  // New column for dining
+  roomTypes      String  // New column for roomTypes
   reviews        Review[]
-  image          String  @default("")// New field to store the image filename
+  image          String  @default("") // New field to store the image filename
 }
+
 
 
 model Review {

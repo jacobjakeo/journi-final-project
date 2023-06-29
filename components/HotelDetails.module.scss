@@ -13,6 +13,8 @@
   src: url('../public/fonts/Lato-Regular.ttf');
 }
 
+// First Part of the page
+
 .hotelDetails {
   display: flex;
   flex-direction: column;
@@ -99,4 +101,38 @@
 .link a:hover {
   text-decoration: underline;
   color: #424242;
+}
+
+// Second Part of the page
+
+.hotelInfo2 {
+  display: flex;
+  width: 100vw;
+  padding: 25px;
+  flex: 1 1;
+}
+
+.hotelImage2 {
+  position: relative;
+  width: 40vw;
+  height: 100vh;
+}
+
+.rightSide2 {
+  flex: 1;
+  width: 60vw;
+  padding: 25px;
+  color: #424242;
+  border-bottom: 1px solid #424242;
+  background: #f9f9f9;
+
+  h2 {
+    font-family: Montserrat-Bold, sans-serif;
+  }
+}
+
+// REVIEWS
+
+.reviewHeader {
+  font-family: Montserrat-Bold, sans-serif;
 }
