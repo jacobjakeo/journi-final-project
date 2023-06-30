@@ -133,6 +133,56 @@
 
 // REVIEWS
 
+.reviewSection {
+  display: flex;
+  width: 100vw;
+  padding: 25px;
+  flex: 1 1;
+}
+
+.reviewForm {
+  position: relative;
+  width: 40vw;
+  height: 100vh;
+}
+
+.reviewComments {
+  flex: 1;
+  width: 60vw;
+  padding: 25px;
+  color: #424242;
+  border-bottom: 1px solid #424242;
+  background: #f9f9f9;
+}
+
 .reviewHeader {
   font-family: Montserrat-Bold, sans-serif;
+}
+
+.oneComment {
+  background: #d9d3c7;
+  color: #424242;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+
+  p {
+    font-family: Lato-Regular, sans-serif;
+  }
+
+  .userName {
+    font-family: Montserrat-Bold, sans-serif;
+  }
+
+  .rating {
+    font-family: Montserrat-Medium, sans-serif;
+  }
+
+  .review {
+    font-family: Lato-Regular, sans-serif;
+  }
+  ul {
+    list-style: none;
+  }
 }

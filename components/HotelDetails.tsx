@@ -125,6 +125,53 @@ const HotelDetails: React.FC = () => {
           <p className={styles.description}>{hotel.lowestRates}</p>
         </div>
       </div>
+      <div className={styles.reviewSection}>
+        <div className={styles.reviewForm}>
+          <h3 className={styles.reviewHeader}>Submit a Review</h3>
+          <form onSubmit={handleSubmitReview}>
+            <div>
+              <label htmlFor="rating">Journi Rating:</label>
+              <select id="rating" value={rating} onChange={handleRatingChange}>
+                <option value={0}>Select rating</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="comment">Comment:</label>
+              <textarea
+                id="comment"
+                value={comment}
+                onChange={handleCommentChange}
+              />
+            </div>
+            <button>Submit Review</button>
+          </form>
+        </div>
+        <div className={styles.reviewComments}>
+          <h3 className={styles.reviewHeader}>Member Reviews</h3>
+          <div className={styles.oneComment}>
+            {hotel.reviews && hotel.reviews.length > 0 ? (
+              <ul>
+                {hotel.reviews.map((review) => (
+                  <li key={review.id}>
+                    <p className={styles.userName}>{review.username}</p>
+                    <p className={styles.rating}>
+                      Journi Rating: {review.rating} ☆
+                    </p>
+                    <p className={styles.review}>{review.comment}</p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No reviews yet.</p>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
