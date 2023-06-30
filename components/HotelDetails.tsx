@@ -115,14 +115,22 @@ const HotelDetails: React.FC = () => {
           />
         </div>
         <div className={styles.rightSide2}>
-          <h2>What amenities are there?</h2>
-          <p className={styles.description}>{hotel.amenities}</p>
-          <h2>How about the room categories?</h2>
-          <p className={styles.description}>{hotel.roomTypes}</p>
-          <h2>Is there a restaurant inside the hotel?</h2>
-          <p className={styles.description}>{hotel.dining}</p>
-          <h2>When should I book to get the cheapest rates?</h2>
-          <p className={styles.description}>{hotel.lowestRates}</p>
+          <div className={styles.hotelInfo3}>
+            <h2>What amenities are there?</h2>
+            <p className={styles.description}>{hotel.amenities}</p>
+            <h2>How about the room categories?</h2>
+            <p className={styles.description}>
+              The room categories on this property are : {hotel.roomTypes}. For
+              all the rooms information please visit the hotels website.
+            </p>
+            <h2>Is there a restaurant inside the hotel?</h2>
+            <p className={styles.description}>{hotel.dining}</p>
+            <h2>When should I book to get the cheapest rates?</h2>
+            <p className={styles.description}>
+              The cheapest months according to our research, are{' '}
+              {hotel.lowestRates}.
+            </p>
+          </div>
         </div>
       </div>
       <div className={styles.reviewSection}>
