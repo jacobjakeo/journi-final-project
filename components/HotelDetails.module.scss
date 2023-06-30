@@ -46,25 +46,25 @@
 .hotelInfo {
   display: flex;
   width: 100vw;
-}
 
-.leftSide {
-  flex: 1;
-  width: 50vw;
-  padding: 25px;
-  color: #424242;
-  background: #f9f9f9;
-  border-bottom: 1px solid #424242;
-}
+  .leftSide {
+    flex: 1;
+    width: 40vw;
+    padding: 25px;
+    color: #424242;
+    background: #f9f9f9;
+    border-bottom: 1px solid #424242;
+  }
 
-.rightSide {
-  flex: 1;
-  width: 50vw;
-  padding: 25px;
-  color: #424242;
-  border-left: 1px solid #424242;
-  border-bottom: 1px solid #424242;
-  background: #f9f9f9;
+  .rightSide {
+    flex: 1;
+    width: 60vw;
+    padding: 25px;
+    color: #424242;
+    border-left: 1px solid #424242;
+    border-bottom: 1px solid #424242;
+    background: #f9f9f9;
+  }
 }
 
 .location {
@@ -108,7 +108,6 @@
 .hotelInfo2 {
   display: flex;
   width: 100vw;
-  padding: 25px;
   flex: 1 1;
 }
 
@@ -136,14 +135,67 @@
 .reviewSection {
   display: flex;
   width: 100vw;
-  padding: 25px;
   flex: 1 1;
 }
 
 .reviewForm {
-  position: relative;
   width: 40vw;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22282f;
+  background: #f9f9f9;
+  text-align: center;
+
+  .commentContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: Montserrat-Medium, sans-serif;
+  }
+
+  .ratingContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: Montserrat-Medium, sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .submitButton {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #d9d3c7;
+    color: #2c3238;
+    font-size: 0.9rem;
+    font-family: Montserrat-Medium, sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #22282f;
+    font-family: Lato-Regular, sans-serif;
+    box-sizing: border-box;
+  }
+
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #22282f;
+    font-family: Lato-Regular, sans-serif;
+    box-sizing: border-box;
+  }
 }
 
 .reviewComments {
@@ -151,8 +203,9 @@
   width: 60vw;
   padding: 25px;
   color: #424242;
-  border-bottom: 1px solid #424242;
   background: #f9f9f9;
+  overflow-y: auto;
+  border-left: 1px solid #424242;
 }
 
 .reviewHeader {
@@ -166,6 +219,7 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 15px;
+  margin-bottom: 20px;
 
   p {
     font-family: Lato-Regular, sans-serif;
@@ -185,4 +239,15 @@
   ul {
     list-style: none;
   }
+}
+
+.scrollableReviews {
+  height: calc(100vh - 120px); /* Subtract the height of the header and form */
+  overflow-y: auto;
+}
+
+.reviewList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }

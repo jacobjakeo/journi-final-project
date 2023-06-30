@@ -127,12 +127,20 @@ const HotelDetails: React.FC = () => {
       </div>
       <div className={styles.reviewSection}>
         <div className={styles.reviewForm}>
-          <h3 className={styles.reviewHeader}>Submit a Review</h3>
           <form onSubmit={handleSubmitReview}>
-            <div>
-              <label htmlFor="rating">Journi Rating:</label>
-              <select id="rating" value={rating} onChange={handleRatingChange}>
-                <option value={0}>Select rating</option>
+            <h3 className={styles.reviewHeader}>Write a Review</h3>
+            <div className={styles.ratingContainer}>
+              <label htmlFor="rating">☆:</label>
+              <select
+                id="rating"
+                name="rating"
+                value={rating}
+                onChange={handleRatingChange}
+                required
+              >
+                <option value={0} disabled>
+                  Select a rating
+                </option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -140,24 +148,28 @@ const HotelDetails: React.FC = () => {
                 <option value={5}>5</option>
               </select>
             </div>
-            <div>
-              <label htmlFor="comment">Comment:</label>
+            <div className={styles.commentContainer}>
+              <label htmlFor="comment">Review:</label>
               <textarea
                 id="comment"
+                name="comment"
                 value={comment}
                 onChange={handleCommentChange}
+                required
               />
             </div>
-            <button>Submit Review</button>
+            <button type="submit" className={styles.submitButton}>
+              Submit
+            </button>
           </form>
         </div>
         <div className={styles.reviewComments}>
           <h3 className={styles.reviewHeader}>Member Reviews</h3>
-          <div className={styles.oneComment}>
+          <div className={styles.scrollableReviews}>
             {hotel.reviews && hotel.reviews.length > 0 ? (
-              <ul>
+              <ul className={styles.reviewList}>
                 {hotel.reviews.map((review) => (
-                  <li key={review.id}>
+                  <li key={review.id} className={styles.oneComment}>
                     <p className={styles.userName}>{review.username}</p>
                     <p className={styles.rating}>
                       Journi Rating: {review.rating} ☆
