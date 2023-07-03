@@ -120,3 +120,13 @@ app.get('/api/hotels/:id/reviews', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+app.get('/api/posts', async (req, res) => {
+  try {
+    const posts = await prisma.post.findMany();
+    res.json(posts);
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});

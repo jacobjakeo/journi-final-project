@@ -1,0 +1,108 @@
+.container {
+  margin: 0 25px;
+  height: 80vh;
+  width: 100vw;
+  overflow-y: auto;
+}
+
+.postsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cardImage {
+  object-fit: cover;
+}
+.postsList {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  margin-bottom: 2.5vh;
+}
+
+.postsCard {
+  position: relative;
+  width: 100%;
+  background-color: #f9f9f9;
+  text-align: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+.postsCard:hover {
+  transform: scale(1.1);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cardContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  z-index: 1;
+  width: 100%;
+}
+
+.cardTitle {
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+}
+
+.cardAuthor {
+  font-family: Montserrat-Medium, sans-serif;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.header {
+  text-transform: uppercase;
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: 2.4rem;
+  color: #22282f;
+  text-align: center;
+}
+
+.readMoreButton {
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 10%;
+  text-align: center;
+}
