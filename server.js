@@ -44,7 +44,11 @@ app.get('/api/hotels/:id', async (req, res) => {
 app.post('/api/hotels/:id/reviews', async (req, res) => {
   const { id } = req.params;
   const { rating, comment } = req.body;
-  const username = req.session.user.username;
+  const username = req.session?.user?.username; // Safely access the username property
+
+  if (!username) {
+    return res.status(401).json({ error: 'User not authenticated' });
+  }
 
   try {
     const hotelId = parseInt(id, 10);
@@ -69,6 +73,50 @@ app.post('/api/hotels/:id/reviews', async (req, res) => {
   }
 });
 
+app.get('/api/hotels/:id/review', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const review = await prisma.review.findFirst({
+      where: { hotelId: parseInt(id) },
+    });
+
+    if (!review) {
+      return res.status(404).json({ error: 'Review not found' });
+    }
+
+    res.json(review);
+  } catch (error) {
+    console.error('Error fetching review:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get('/api/reviews', async (req, res) => {
+  try {
+    const reviews = await prisma.review.findMany();
+    res.json(reviews);
+  } catch (error) {
+    console.error('Error fetching reviews:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+});
+
+app.get('/api/hotels/:id/reviews', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const reviews = await prisma.review.findMany({
+      where: { hotelId: parseInt(id) },
+    });
+
+    res.json(reviews);
+  } catch (error) {
+    console.error('Error fetching reviews:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });

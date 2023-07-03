@@ -1,4 +1,5 @@
 'use client';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import styles from './HotelDetails.module.scss';
@@ -7,6 +8,7 @@ const HotelDetails: React.FC = () => {
   const [hotel, setHotel] = useState(null);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
+  const { data: session, status: sessionStatus } = useSession();
 
   useEffect(() => {
     const fetchHotel = async () => {
@@ -28,27 +30,33 @@ const HotelDetails: React.FC = () => {
     fetchHotel();
   }, []);
 
-  const handleRatingChange = (event) => {
+  const handleRatingChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setRating(parseInt(event.target.value, 10));
   };
 
-  const handleCommentChange = (event) => {
+  const handleCommentChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     setComment(event.target.value);
   };
 
   const handleSubmitReview = async (event) => {
     event.preventDefault();
     const hotelId = parseInt(window.location.pathname.split('/')[2]);
+    const username = session?.user?.username;
 
     try {
       const response = await fetch(
-        `http://localhost:3001/api/hotels/${hotelId}`,
+        `http://localhost:3001/api/hotels/${hotelId}/reviews`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            Authorization: username
+              ? `Bearer ${session.accessToken}`
+              : undefined,
           },
-          body: JSON.stringify({ hotelId, rating, comment }),
+          body: JSON.stringify({ hotelId, username, rating, comment }),
         },
       );
 
@@ -127,7 +135,7 @@ const HotelDetails: React.FC = () => {
             <p className={styles.description}>{hotel.dining}</p>
             <h2>When should I book to get the cheapest rates?</h2>
             <p className={styles.description}>
-              The cheapest months according to our research, are{' '}
+              The cheapest months according to our research are{' '}
               {hotel.lowestRates}.
             </p>
           </div>
