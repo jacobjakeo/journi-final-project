@@ -102,48 +102,6 @@
     color: #424242;
   }
 
-  // Second Part of the page
-
-  .hotelInfo2 {
-    display: flex;
-    width: 100vw;
-    flex: 1 1;
-  }
-
-  .hotelImage2 {
-    position: relative;
-    width: 40vw;
-    height: 100vh;
-  }
-
-  .rightSide2 {
-    flex: 1;
-    width: 60vw;
-    padding: 25px;
-    color: #424242;
-    border-bottom: 1px solid #424242;
-    background: #f9f9f9;
-
-    .hotelInfo3 {
-      align-content: center;
-      display: flex;
-      flex-direction: column;
-    }
-
-    h2 {
-      font-family: Montserrat-Bold, sans-serif;
-      text-align: center;
-      font-size: 1.6rem;
-    }
-
-    p {
-      font-family: Lato-Regular, sans-serif;
-      text-align: center;
-      margin-left: 50px;
-      margin-right: 50px;
-    }
-  }
-
   // REVIEWS
 
   .reviewSection {
@@ -175,6 +133,25 @@
       flex-direction: column;
       font-family: Montserrat-Medium, sans-serif;
       margin-bottom: 10px;
+    }
+
+    .usernameContainer {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      font-family: Montserrat-Medium, sans-serif;
+      margin-bottom: 10px;
+
+      input {
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        color: #22282f;
+        font-family: Lato-Regular, sans-serif;
+        box-sizing: border-box;
+        text-align: center;
+      }
     }
 
     .submitButton {
@@ -266,5 +243,46 @@
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+}
+
+// Second Part of the page
+
+.hotelInfo2 {
+  display: flex;
+  width: 100vw;
+  flex: 1 1;
+
+  .hotelImage2 {
+    position: relative;
+    width: 40vw;
+    height: 100vh;
+  }
+
+  .column {
+    flex: 1;
+    padding: 25px;
+    color: #424242;
+    border-bottom: 1px solid #424242;
+    background: #f9f9f9;
+  }
+
+  .hotelInfo3 {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-family: Montserrat-Bold, sans-serif;
+      text-align: center;
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-family: Lato-Regular, sans-serif;
+      text-align: center;
+      margin-left: 50px;
+      margin-right: 50px;
+    }
   }
 }

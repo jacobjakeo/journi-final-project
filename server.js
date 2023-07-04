@@ -43,8 +43,7 @@ app.get('/api/hotels/:id', async (req, res) => {
 
 app.post('/api/hotels/:id/reviews', async (req, res) => {
   const { id } = req.params;
-  const { rating, comment } = req.body;
-  const username = req.session?.user?.username; // Safely access the username property
+  const { rating, comment, username } = req.body;
 
   if (!username) {
     return res.status(401).json({ error: 'User not authenticated' });

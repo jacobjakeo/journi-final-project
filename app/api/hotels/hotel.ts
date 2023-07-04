@@ -26,14 +26,14 @@ export default async function handler(req, res) {
     res.status(200).json({ ...hotel, imageUrl });
   } else if (req.method === 'POST') {
     // Handle POST request to submit a review for a hotel
-    const { hotelId, rating, comment } = req.body;
+    const { hotelId, username, rating, comment } = req.body;
 
     // Perform validation if needed (e.g., check if the user has already submitted a review for this hotel)
 
     const review = await prisma.review.create({
       data: {
         hotelId,
-        username: req.session.username, // Assuming you have the username stored in the session
+        username,
         rating,
         comment,
       },

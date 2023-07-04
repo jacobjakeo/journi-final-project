@@ -21,18 +21,14 @@ function BlogPostsCards() {
   const [postId, setPostId] = useState(null);
   const router = useRouter();
 
-  const handlePostClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const postId = event.currentTarget.dataset.postId;
+  const handlePostClick = (event) => {
+    const postId = event.currentTarget.dataset.hotelId;
     if (postId) {
       setPostId(postId);
       if (postId !== undefined) {
-        router.push(`/posts/${postId}`);
+        router.push(`/news/${postId}`);
       }
     }
-  };
-
-  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
-    handlePostClick(event);
   };
 
   useEffect(() => {
@@ -56,7 +52,6 @@ function BlogPostsCards() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.header}>Latest Openings</h2>
       <div className={styles.postsContainer}>
         <div>
           {posts.map((post, index) => (
@@ -74,7 +69,12 @@ function BlogPostsCards() {
                   height={350}
                 />
                 <h2 className={styles.cardTitle}>{post.title}</h2>
-                <button className={styles.readMoreButton}>Read More</button>
+                <button
+                  onClick={handlePostClick}
+                  className={styles.readMoreButton}
+                >
+                  Read More
+                </button>
               </div>
             </div>
           ))}

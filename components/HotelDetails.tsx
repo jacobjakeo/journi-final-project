@@ -1,5 +1,4 @@
 'use client';
-import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import styles from './HotelDetails.module.scss';
@@ -8,7 +7,8 @@ const HotelDetails: React.FC = () => {
   const [hotel, setHotel] = useState(null);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
-  const { data: session, status: sessionStatus } = useSession();
+  const [username, setUsername] = useState('');
+  const [accessToken, setAccessToken] = useState('');
 
   useEffect(() => {
     const fetchHotel = async () => {
@@ -40,10 +40,13 @@ const HotelDetails: React.FC = () => {
     setComment(event.target.value);
   };
 
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value);
+  };
+
   const handleSubmitReview = async (event) => {
     event.preventDefault();
     const hotelId = parseInt(window.location.pathname.split('/')[2]);
-    const username = session?.user?.username;
 
     try {
       const response = await fetch(
@@ -52,9 +55,6 @@ const HotelDetails: React.FC = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: username
-              ? `Bearer ${session.accessToken}`
-              : undefined,
           },
           body: JSON.stringify({ hotelId, username, rating, comment }),
         },
@@ -71,9 +71,10 @@ const HotelDetails: React.FC = () => {
         reviews: [...prevHotel.reviews, data.review],
       }));
 
-      // Reset the rating and comment fields
+      // Reset the rating, comment, and username fields
       setRating(0);
       setComment('');
+      setUsername('');
     } catch (error) {
       console.error(error);
     }
@@ -100,6 +101,9 @@ const HotelDetails: React.FC = () => {
           <p className={styles.location}>{hotel.location}</p>
           <p className={styles.price}>
             Starting from € {hotel.price} per night, prices may vary.
+            <br />
+            The cheapest months according to our research are:{' '}
+            {hotel.lowestRates}.
           </p>
           <p className={styles.rooms}>
             This property has {hotel.numberOfRooms} rooms in total.
@@ -113,31 +117,25 @@ const HotelDetails: React.FC = () => {
         </div>
       </div>
       <div className={styles.hotelInfo2}>
-        <div className={styles.hotelImage2}>
-          <Image
-            src={`/assets/hotelimages/roomsimages/hotelroom-${hotel.id}.jpg`}
-            alt={hotel.name}
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-          />
-        </div>
-        <div className={styles.rightSide2}>
+        <div className={styles.column}>
           <div className={styles.hotelInfo3}>
             <h2>What amenities are there?</h2>
             <p className={styles.description}>{hotel.amenities}</p>
+          </div>
+        </div>
+        <div className={styles.column}>
+          <div className={styles.hotelInfo3}>
             <h2>How about the room categories?</h2>
             <p className={styles.description}>
-              The room categories on this property are : {hotel.roomTypes}. For
-              all the rooms information please visit the hotels website.
+              The room categories on this property are: {hotel.roomTypes}. For
+              all the room information, please visit the hotel's website.
             </p>
+          </div>
+        </div>
+        <div className={styles.column}>
+          <div className={styles.hotelInfo3}>
             <h2>Is there a restaurant inside the hotel?</h2>
             <p className={styles.description}>{hotel.dining}</p>
-            <h2>When should I book to get the cheapest rates?</h2>
-            <p className={styles.description}>
-              The cheapest months according to our research are{' '}
-              {hotel.lowestRates}.
-            </p>
           </div>
         </div>
       </div>
@@ -145,6 +143,17 @@ const HotelDetails: React.FC = () => {
         <div className={styles.reviewForm}>
           <form onSubmit={handleSubmitReview}>
             <h3 className={styles.reviewHeader}>Write a Review</h3>
+            <div className={styles.usernameContainer}>
+              <label htmlFor="username">Username:</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={username}
+                onChange={handleUsernameChange}
+                required
+              />
+            </div>
             <div className={styles.ratingContainer}>
               <label htmlFor="rating">☆:</label>
               <select
