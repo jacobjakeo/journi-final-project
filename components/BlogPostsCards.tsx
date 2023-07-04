@@ -56,9 +56,9 @@ function BlogPostsCards() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.header}>Latest Posts</h2>
+      <h2 className={styles.header}>Latest Openings</h2>
       <div className={styles.postsContainer}>
-        <div className={styles.postsList}>
+        <div>
           {posts.map((post, index) => (
             <div
               className={styles.postsCard}
