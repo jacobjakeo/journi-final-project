@@ -8,6 +8,7 @@ const HotelDetails: React.FC = () => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
   const [username, setUsername] = useState('');
+  const [filteredReviews, setFilteredReviews] = useState(null);
 
   // Fetch hotel from database using the ID inside the url
   useEffect(() => {
@@ -29,6 +30,16 @@ const HotelDetails: React.FC = () => {
 
     fetchHotel();
   }, []);
+
+  useEffect(() => {
+    // Filter reviews based on rating
+    if (hotel && hotel.reviews) {
+      const filtered = hotel.reviews.filter(
+        (review) => review.rating === rating,
+      );
+      setFilteredReviews(filtered);
+    }
+  }, [hotel, rating]);
 
   // Review Section Functions
   const handleRatingChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -52,16 +63,19 @@ const HotelDetails: React.FC = () => {
 
     return clampedRating.toFixed(1); // Limit the average rating to one decimal place
   };
+
   // Review Form
   const handleCommentChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     setComment(event.target.value);
   };
+
   // Review Form
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
+
   // Review Form sending
   const handleSubmitReview = async (event) => {
     event.preventDefault();
@@ -228,10 +242,22 @@ const HotelDetails: React.FC = () => {
         </div>
         <div className={styles.reviewComments}>
           <h3 className={styles.reviewHeader}>Member Reviews</h3>
+          <div className={styles.ratingFilter}>
+            <p>Filter by Rating:</p>
+            {[1, 2, 3, 4, 5].map((index) => (
+              <button
+                key={index}
+                className={index === rating ? styles.activeButton : ''}
+                onClick={() => setRating(index)}
+              >
+                {index}
+              </button>
+            ))}
+          </div>
           <div className={styles.scrollableReviews}>
-            {hotel.reviews && hotel.reviews.length > 0 ? (
+            {filteredReviews && filteredReviews.length > 0 ? (
               <ul className={styles.reviewList}>
-                {hotel.reviews.map((review) => (
+                {filteredReviews.map((review) => (
                   <li key={review.id} className={styles.oneComment}>
                     <p className={styles.userName}>{review.username}</p>
                     <p className={styles.rating}>
@@ -242,7 +268,7 @@ const HotelDetails: React.FC = () => {
                 ))}
               </ul>
             ) : (
-              <p>No reviews yet.</p>
+              <p>No reviews matching the selected rating.</p>
             )}
           </div>
         </div>
