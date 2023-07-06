@@ -8,8 +8,8 @@ const HotelDetails: React.FC = () => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
   const [username, setUsername] = useState('');
-  const [accessToken, setAccessToken] = useState('');
 
+  // Fetch hotel from database using the ID inside the url
   useEffect(() => {
     const fetchHotel = async () => {
       const hotelId = parseInt(window.location.pathname.split('/')[2]);
@@ -30,10 +30,12 @@ const HotelDetails: React.FC = () => {
     fetchHotel();
   }, []);
 
+  // Review Section Functions
   const handleRatingChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setRating(parseInt(event.target.value, 10));
   };
 
+  // Calculate Ratings Average
   const calculateAverageRating = () => {
     if (!hotel || !hotel.reviews || hotel.reviews.length === 0) {
       return 0;
@@ -50,17 +52,17 @@ const HotelDetails: React.FC = () => {
 
     return clampedRating.toFixed(1); // Limit the average rating to one decimal place
   };
-
+  // Review Form
   const handleCommentChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     setComment(event.target.value);
   };
-
+  // Review Form
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
-
+  // Review Form sending
   const handleSubmitReview = async (event) => {
     event.preventDefault();
     const hotelId = parseInt(window.location.pathname.split('/')[2]);
