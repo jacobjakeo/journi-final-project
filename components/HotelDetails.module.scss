@@ -286,3 +286,26 @@
     }
   }
 }
+
+.averageRating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .starRating {
+    font-size: 24px;
+    color: #ccc;
+    text-align: center;
+
+    p {
+      font-family: Montserrat-Medium, sans-serif;
+      text-transform: uppercase;
+      font-size: larger;
+      color: #22282f;
+    }
+  }
+
+  .filledStar {
+    color: gold;
+  }
+}

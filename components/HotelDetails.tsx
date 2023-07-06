@@ -34,6 +34,23 @@ const HotelDetails: React.FC = () => {
     setRating(parseInt(event.target.value, 10));
   };
 
+  const calculateAverageRating = () => {
+    if (!hotel || !hotel.reviews || hotel.reviews.length === 0) {
+      return 0;
+    }
+
+    const totalRating = hotel.reviews.reduce(
+      (sum, review) => sum + review.rating,
+      0,
+    );
+    const averageRating = totalRating / hotel.reviews.length;
+
+    // Ensure average rating is between 1 and 5
+    const clampedRating = Math.max(1, Math.min(5, averageRating));
+
+    return clampedRating.toFixed(1); // Limit the average rating to one decimal place
+  };
+
   const handleCommentChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
@@ -137,6 +154,25 @@ const HotelDetails: React.FC = () => {
             <h2>Is there a restaurant inside the hotel?</h2>
             <p className={styles.description}>{hotel.dining}</p>
           </div>
+        </div>
+      </div>
+      <div className={styles.averageRating}>
+        <div className={styles.starRating}>
+          <p>Journi's Community Rating</p>
+          {[1, 2, 3, 4, 5].map((index) => {
+            const starClass =
+              index <= Math.floor(calculateAverageRating())
+                ? styles.filledStar
+                : index - 0.5 <= calculateAverageRating()
+                ? styles.halfStar
+                : styles.emptyStar;
+
+            return (
+              <span key={index} className={starClass}>
+                ★
+              </span>
+            );
+          })}
         </div>
       </div>
       <div className={styles.reviewSection}>
