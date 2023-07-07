@@ -70,16 +70,17 @@
     font-family: Montserrat-Medium, sans-serif;
     text-transform: uppercase;
     font-size: larger;
+    font-weight: bold;
   }
 
   .price {
     font-family: Montserrat-Medium, sans-serif;
-    font-size: small;
+    font-size: larger;
   }
 
   .rooms {
     font-family: Montserrat-Medium, sans-serif;
-    font-size: small;
+    font-size: larger;
   }
 
   .description {
@@ -308,5 +309,23 @@
 
   .filledStar {
     color: gold;
+  }
+}
+
+.ratingFilter {
+  font-family: Montserrat-Medium, sans-serif;
+  text-transform: uppercase;
+  font-size: medium;
+  color: #22282f;
+
+  button {
+    border: none;
+    border-radius: 5px;
+    background-color: #d9d3c7;
+    color: #2c3238;
+    font-size: 0.9rem;
+    font-family: Montserrat-Medium, sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
   }
 }

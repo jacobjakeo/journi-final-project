@@ -5,7 +5,7 @@ import styles from './HotelDetails.module.scss';
 
 const HotelDetails: React.FC = () => {
   const [hotel, setHotel] = useState(null);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState('0');
   const [comment, setComment] = useState('');
   const [username, setUsername] = useState('');
   const [filteredReviews, setFilteredReviews] = useState(null);
@@ -34,16 +34,22 @@ const HotelDetails: React.FC = () => {
   useEffect(() => {
     // Filter reviews based on rating
     if (hotel && hotel.reviews) {
-      const filtered = hotel.reviews.filter(
-        (review) => review.rating === rating,
-      );
+      const filtered =
+        rating !== null
+          ? hotel.reviews.filter((review) => review.rating === rating)
+          : hotel.reviews;
       setFilteredReviews(filtered);
     }
   }, [hotel, rating]);
 
   // Review Section Functions
   const handleRatingChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setRating(parseInt(event.target.value, 10));
+    const selectedRating = parseInt(event.target.value, 10);
+
+    // Ignore filtering if the rating is selected from the dropdown
+    if (event.target.name !== 'rating') {
+      setRating(selectedRating);
+    }
   };
 
   // Calculate Ratings Average
@@ -255,7 +261,7 @@ const HotelDetails: React.FC = () => {
             ))}
           </div>
           <div className={styles.scrollableReviews}>
-            {filteredReviews && filteredReviews.length > 0 ? (
+            {filteredReviews !== null ? (
               <ul className={styles.reviewList}>
                 {filteredReviews.map((review) => (
                   <li key={review.id} className={styles.oneComment}>
