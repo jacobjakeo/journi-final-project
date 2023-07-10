@@ -2,16 +2,22 @@ import prisma from '../../../lib/prisma';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
-    // Handle GET request to retrieve all blog posts
-    const posts = await prisma.post.findMany();
+    const { id } = req.query;
+    const postId = parseInt(id as string, 10); // Convert postId to number
 
-    res.status(200).json(posts);
-  } else if (req.method === 'POST') {
-    // Handle POST request to submit a new blog post
-    // ...
-    // Add your logic for creating a new blog post here
-    // ...
-  } else {
-    res.status(405).json({ message: 'Method Not Allowed' });
+    if (isNaN(postId)) {
+      res.status(400).json({ message: 'Invalid post ID' });
+      return;
+    }
+
+    const post = await prisma.post.findUnique({
+      where: { id: postId },
+      include: { author: true }, // Include the author
+    });
+
+    if (!post) {
+      res.status(404).json({ message: 'Post not found' });
+      return;
+    }
   }
 }
