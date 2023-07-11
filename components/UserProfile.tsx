@@ -36,6 +36,12 @@ const UserProfile = () => {
           <div className={styles.username}>{user.name}</div>
           <div className={styles.email}>{user.email}</div>
           <div className={styles.status}>{createdAtYear}</div>
+          <div className={styles.profileHead}>My Favorite Hotel</div>
+          <p className={styles.text}>Le Yaca</p>
+          <div className={styles.profileHead}>Last Visited Country</div>
+          <p className={styles.text}>France</p>
+          <div className={styles.profileHead}>Status</div>
+          <p className={styles.text}>Looking for new recommendations!</p>
         </div>
       </div>
       <div className={styles.separator} />
@@ -44,21 +50,21 @@ const UserProfile = () => {
         <div className={styles.stats}>
           <div className={styles.statCard}>
             <div className={styles.statHeading}>Hotels Visited</div>
-            <div className={styles.statNumber}>nA</div>
+            <div className={styles.statNumber}>5</div>
           </div>
           <div className={styles.statCard}>
             <div className={styles.statHeading}>Countries Visited</div>
-            <div className={styles.statNumber}>nA</div>
+            <div className={styles.statNumber}>4</div>
           </div>
         </div>
         <div className={styles.stats}>
           <div className={styles.statCard}>
             <div className={styles.statHeading}>Reviews Written</div>
-            <div className={styles.statNumber}>nA</div>
+            <div className={styles.statNumber}>3</div>
           </div>
           <div className={styles.statCard}>
             <div className={styles.statHeading}>Stars Given</div>
-            <div className={styles.statNumber}>nA</div>
+            <div className={styles.statNumber}>10</div>
           </div>
         </div>
       </div>

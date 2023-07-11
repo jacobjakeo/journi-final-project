@@ -8,6 +8,11 @@
   src: url('../public/fonts/Montserrat-Medium.ttf');
 }
 
+@font-face {
+  font-family: Lato;
+  src: url('../public/fonts/Lato-Regular.ttf');
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -55,6 +60,20 @@
   font-family: Montserrat-Medium, sans-serif;
 }
 
+.status {
+  margin-bottom: 15px;
+}
+.profileHead {
+  font-size: 14px;
+  color: #494949;
+  margin-top: 5px;
+  font-family: Montserrat-Medium, sans-serif;
+  text-transform: uppercase;
+}
+
+.text {
+  font-family: Lato, sans-serif;
+}
 .separator {
   width: 1px;
   height: 450px;

@@ -22,13 +22,17 @@ function BlogPostsCards() {
   const router = useRouter();
 
   const handlePostClick = (event) => {
-    const postId = event.currentTarget.dataset.hotelId;
+    const postId = event.currentTarget.dataset.postId;
     if (postId) {
       setPostId(postId);
       if (postId !== undefined) {
         router.push(`/news/${postId}`);
       }
     }
+  };
+
+  const handleMouseDown = (event) => {
+    handlePostClick(event);
   };
 
   useEffect(() => {
@@ -71,6 +75,8 @@ function BlogPostsCards() {
                 <h2 className={styles.cardTitle}>{post.title}</h2>
                 <button
                   onClick={handlePostClick}
+                  key={`post-${post.id}`}
+                  data-post-id={post.id}
                   className={styles.readMoreButton}
                 >
                   Read More

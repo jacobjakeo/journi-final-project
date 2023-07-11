@@ -39,15 +39,6 @@ function HotelsCards() {
     handleHotelClick(event);
   };
 
-  const scrollHotels = (direction: 'left' | 'right') => {
-    const hotelsList = hotelsListRef.current;
-    if (hotelsList) {
-      const cardWidth = hotelsList.scrollWidth / hotels.length;
-      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
-      hotelsList.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
   useEffect(() => {
     const fetchHotels = async () => {
       try {
@@ -71,7 +62,6 @@ function HotelsCards() {
     <div className={styles.hotelsContainer}>
       <h2 className={styles.header}>Explore new hotels</h2>
       <div className={styles.hotelsList}>
-        {/* Left arrow */}
         <div className={styles.hotelsListWrapper} ref={hotelsListRef}>
           {hotels.map((hotel) => (
             <div
@@ -96,7 +86,6 @@ function HotelsCards() {
             </div>
           ))}
         </div>
-        {/* Right arrow */}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import styles from './BlogPostsCards.module.scss';
+import styles from './BlogPostSingle.module.scss';
 
 const BlogPostSingle: React.FC = () => {
   const [post, setPost] = useState(null);
@@ -32,22 +32,19 @@ const BlogPostSingle: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.postsContainer}>
-        <div>
-          <div className={styles.postsCard} key={`post-${post.id}`}>
-            <div className={styles.imageContainer}>
-              <Image
-                className={styles.cardImage}
-                src={`/assets/blogimages/blogpost-${post.id}.jpg`}
-                alt={post.title}
-                width={1000}
-                height={350}
-              />
-              <h2 className={styles.cardTitle}>{post.title}</h2>
-              <p>{post.content}</p>
-            </div>
-          </div>
-        </div>
+      <div className={styles.contentContainer}>
+        <h2 className={styles.title}>{post.title}</h2>
+        <p className={styles.content}>{post.content}</p>
+        <p className={styles.authorId}>Author: XYZ</p>
+      </div>
+      <div className={styles.imageContainer}>
+        <Image
+          className={styles.image}
+          src={`/assets/blogimages/blogpost-${post.id}.jpg`}
+          alt={post.title}
+          width={680}
+          height={350}
+        />
       </div>
     </div>
   );
